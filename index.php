@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Demonstrates some basic HTML content elements and CSS" />
+  <meta name="keywords" content="HTML5, tags" />
+  <meta name="author" content="Lakshmi Saketh"  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Tulpen+One' rel='stylesheet' type='text/css' />
+  <link rel="icon" href="images/logo.png" type="image/gif" />
+  <title>QuizPortal</title>
+  
+</head>
+<!-- HeadSection Closed -->
+<!-- Body Section Open-->
+   <body>
+  <!-- Start Header-->  
+     <?php include_once 'Header.inc'?>
+<!-- End Header--> 
+<!-- Start Banner-->
+<div class="bancontain">
+		<div id="ban" class="pw">
+				<ul><li><img src="images/xml.jpg" alt="XMLHttpRequest Image" /></li></ul>
+		</div>
+</div>
+<!-- End Banner--> 
+
+
+
+<!-- Start section1-->
+<section id="container">
+		<div class="pw">
+				<h2> What is XMLHttpRequest ?</h2>
+<p>The XMLHTTPRequest is the advanced technology which provides key to the ajax, it is available in the internet from many years and the origin of this technology is in the year 2000.
+  The XmlHttpRequest became popular in 2005 by the discovery of AJAX. It is an API, we can use it by JS, 
+  Jscript and VBScript and other browser scripting languages to process the XML data that is obtained from the web servers using HTTP, 
+  this helps to create an independent connection between the client and server-side. The data attained by the XmlHttpRequests are from the backend databases. 
+  This usually fetch the data in the form of JSON format or in plain text. The HTTP and HTTPS request helps the XmlHttpRequest to initialize the object by accessing the Open Methods.
+  This is used to validate and process the data inputs from the sources. URL and URI data is used for the initialization of the request. This can accept
+  5 parameters but 2 are enough to create or initialize a request Please visit this link for more info ->.<a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" title="link">link</a> </p><br/> </div>
+		
+
+	
+</section>
+<!-- End Section1--> 
+<!-- Start Footer-->
+<?php include_once 'Footer.inc'?>
+<!-- End footer--> 
+</body>
+<!-- End Body Section-->
+</html>

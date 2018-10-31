@@ -1,0 +1,50 @@
+/* filename: enhance.css 
+author: Lakshmi Saketh
+created: 19/03/18
+last modified:  
+description: project1  css*/
+/*animation of text of  p tag */
+p {
+  animation-name: projSlideIn;
+  animation-duration: 4s;
+ 
+}
+
+/*animation of sprite image*/
+.enhance3 {
+  width: 190px;
+  background: url('../images/enhance.png');
+  height: 240px;
+  animation: anim 0.9s steps(10) infinite;
+  
+}
+
+/*animation logic for text slide*/
+@keyframes projSlideIn {
+  from {
+    margin-left: 100%;
+    width: 100%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+/*animation logic for Sprite Logic*/
+@keyframes anim {
+   80% { background-position: -1900px; }
+}
+
+/*Image enlargements*/
+.enhance1:hover {
+	transform:scale(3,2);
+	transform-origin:0 0;
+}
+
+/*Transperancy*/
+
+.enhance2:hover {
+    opacity:0.8;	
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Demonstrates some basic HTML content elements and CSS" />
+  <meta name="keywords" content="HTML5, tags" />
+  <meta name="author" content="Lakshmi Saketh"  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="styles/style.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Tulpen+One' rel='stylesheet' type='text/css' />
+   <link rel="icon" href="images/logo.png" type="image/gif" />
+   
+  <title>AdminPortal</title>
+  
+</head>
+<!-- HeadSection Closed -->
+
+   <body>
+     <?php include_once 'Header.inc'?>
+<!-- Start Banner--> 
+<div class="bancontain">
+		<div id="ban" class="pw">
+				<ul><li><img src="images/admin.jpg" alt="Server flow Image" /></li></ul>
+		</div>
+</div>
+
+<section id="container">
+		<div class="pw">
+		<h2> Admin:</h2> <br/>
+		
+		<?php
+	require_once("settings.php");
+	//sanitise input
+	function sanitise_input($data) {
+	$data =trim($data);
+	$data =stripslashes($data);
+	$data =htmlspecialchars($data);
+	return $data;
+	}
+	//initialization
+	$errMsg = "";
+	$studentid = "";
+	$delstudent = "";
+	$upstudent = "";
+	$firstname = "";
+	$lastname = "";
+	$hundper = "";
+	$lessthan50 = "";
+	//db connection
+	$conn = @mysqli_connect($host,
+	$user,
+	$pwd,
+	$sql_db
+	);
+	
+	if(!$conn) {
+		echo"<p>Database connection failure</p>";
+	} else {
+	
+	$sql_table = "attempts";
+
+	//Query for particular student id
+	if(isset($_POST["studentid"])&& !empty($_POST["studentid"])){
+		$studentid = sanitise_input($_POST["studentid"]);
+		
+		$query = "select studentID,score,NoAttempt from attempts where studentID=$studentid";
+		$result = mysqli_query($conn, $query);
+		if(!$result) {
+		echo"<p class=\"wrong\">something is wrong ", $query, "</p>";
+		} else {
+		echo "<table border=\"1\">\n";
+		echo "<tr>\n "
+		."<th scope=\"col\">studentID</th>\n "
+		."<th scope=\"col\">score</th>\n "
+		."<th scope=\"col\">NoAttempt</th>\n "
+		."</tr>\n ";
+		
+		while ($row = mysqli_fetch_assoc($result)){
+		echo "<tr>\n ";
+		echo "<td>",$row["studentID"],"</td>\n ";
+		echo "<td>",$row["score"],"</td>\n ";
+		echo "<td>",$row["NoAttempt"],"</td>\n ";
+		echo "</tr>\n\n\n\n";
+		 }
+		}
+	}else {
+		$errMsg .= "<p>Enter student id properly</p>";
+	}	
+		
+		//query for particular name
+		if((isset($_POST["firstname"])&& !empty($_POST["firstname"])) && (isset($_POST["lastname"])&& !empty($_POST["lastname"]))){
+		$firstname = sanitise_input($_POST["firstname"]);
+		$lastname = sanitise_input($_POST["lastname"]);
+		
+		$quer = "select firstname,lastname,score,NoAttempt from attempts where lastname='$lastname' AND firstname='$firstname'";
+		$res = mysqli_query($conn, $quer);
+		if(!$res) {
+		echo"<p class=\"wrong\">something is wrong ", $quer, "</p>";
+		} else {
+		echo "<table border=\"1\">\n";
+		echo "<tr>\n "
+		."<th scope=\"col\">firstname</th>\n "
+		."<th scope=\"col\">lastname</th>\n "
+		."<th scope=\"col\">score</th>\n "
+		."<th scope=\"col\">NoAttempt</th>\n "
+		."</tr>\n ";
+		
+		while ($row = mysqli_fetch_assoc($res)){
+		echo "<tr>\n ";
+		echo "<td>",$row["firstname"],"</td>\n ";
+		echo "<td>",$row["lastname"],"</td>\n ";
+		echo "<td>",$row["score"],"</td>\n ";
+		echo "<td>",$row["NoAttempt"],"</td>\n ";
+		echo "</tr>\n\n\n\n";
+		 }
+		} 
+		
+		}else {
+		$errMsg .= "<p>Enter Name properly</p>";
+		}	
+		
+		//Query for all students having 100% in first attempts
+		if(isset($_POST["hundper"])&& !empty($_POST["hundper"])){
+		
+		$query = "select studentID,firstname,lastname from attempts where score=10 AND NoAttempt=1";
+		$result = mysqli_query($conn, $query);
+		if(!$result) {
+		echo"<p class=\"wrong\">something is wrong ", $query, "</p>";
+		} else {
+		echo "<table border=\"1\">\n";
+		echo "<tr>\n "
+		."<th scope=\"col\">studentID</th>\n "
+		."<th scope=\"col\">firstname</th>\n "
+		."<th scope=\"col\">lastname</th>\n "
+		."</tr>\n ";
+		
+		while ($row = mysqli_fetch_assoc($result)){
+		echo "<tr>\n ";
+		echo "<td>",$row["studentID"],"</td>\n ";
+		echo "<td>",$row["firstname"],"</td>\n ";
+		echo "<td>",$row["lastname"],"</td>\n ";
+		echo "</tr>\n\n\n\n";
+		 }
+		}
+		}else {
+			$errMsg .= "<p>Select a checkbox</p>";
+		}	
+		
+		//Query for all students having less 50% in third attempts
+		if(isset($_POST["lessthan50"])&& !empty($_POST["lessthan50"])){
+		
+		$query = "select studentID,firstname,lastname from attempts where score<5 AND NoAttempt=3";
+		$result = mysqli_query($conn, $query);
+		if(!$result) {
+		echo"<p class=\"wrong\">something is wrong ", $query, "</p>";
+		} else {
+		echo "<table border=\"1\">\n";
+		echo "<tr>\n "
+		."<th scope=\"col\">studentID</th>\n "
+		."<th scope=\"col\">firstname</th>\n "
+		."<th scope=\"col\">lastname</th>\n "
+		."</tr>\n ";
+		
+		while ($row = mysqli_fetch_assoc($result)){
+		echo "<tr>\n ";
+		echo "<td>",$row["studentID"],"</td>\n ";
+		echo "<td>",$row["firstname"],"</td>\n ";
+		echo "<td>",$row["lastname"],"</td>\n ";
+		echo "</tr>\n\n\n\n";
+		 }
+		}
+		}else {
+			$errMsg .= "<p>Select a checkbox</p>";
+		}	
+		
+		//Query for delete
+		if(isset($_POST["delstudent"])&& !empty($_POST["delstudent"])){
+		$delstudent = sanitise_input($_POST["delstudent"]);
+		$query = "delete from attempts where studentID=$delstudent";
+		$result = mysqli_query($conn, $query);
+			if(!$result) {
+			echo"<p class=\"wrong\">something is wrong ", $query, "</p>";
+			} else {
+			echo"<p>Delete Successful</p>";
+			 }
+		}
+		else {
+			$errMsg .= "<p>Enter student id properly</p>";
+		}
+
+		//Update for attempt
+		if(isset($_POST["upstudent"])&& !empty($_POST["upstudent"])){
+		$upstudent = sanitise_input($_POST["upstudent"]);
+		$query = "Update attempts set score=4 where studentID=$upstudent AND NoAttempt=1";
+		$result = mysqli_query($conn, $query);
+			if(!$result) {
+			echo"<p class=\"wrong\">something is wrong ", $query, "</p>";
+			} else {
+			echo"<p>Update Successful</p>";
+			 }
+		}
+		else {
+			$errMsg .= "<p>Enter student id properly</p>";
+		}
+	
+  	mysqli_close($conn);
+}
+?> 
+ 
+ </div>
+ </section>
+
+<!-- Start Footer-->
+<?php include_once 'Footer.inc'?>
+<!-- End footer--> 
+<!-- End Container-->
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Demonstrates some basic HTML content elements and CSS" />
+  <meta name="keywords" content="HTML5, tags" />
+  <meta name="author" content="Lakshmi Saketh"  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="styles/styles.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Tulpen+One' rel='stylesheet' type='text/css' />
+   <link rel="icon" href="images/logo.png" type="image/gif" />
+  <title>QuizPortal</title>
+  
+</head>
+<!-- HeadSection Closed -->
+
+   <body>
+     <header id="header" class="alfix">
+		<div class="pw">
+				<h1 id="classlogo">XMLHttpRequest Quiz</h1>
+				<nav id="navigation"><a href="#" id="menu">Menu</a>
+						<ul>
+								<li><a href="index.html" title="Home">Home</a></li><li><a href="Topic.html" title="About Topic">About Topic</a></li><li><a href="quiz.html" title="Quiz">Quiz</a></li><li><a href="enhance.html" title="Contact">Enhancement</a></li>
+						</ul>
+				</nav>
+		</div>
+</header>
+
+	<div id="banquiz" class="pw">
+			<ul><li><img src="images/quiz.jpg" alt="quizImage" /></li></ul>
+	</div>
+		
+	<form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+		<section id="container">
+		<div class="pw">
+		<fieldset>
+			<legend>Student Details</legend>
+			<p><label for="studentid">Student ID</label> 
+			<input type="text" name= "studentid" id="studentid" pattern="\d{7,10}" required="required"/></p>
+			<p><label for="givenname">Given Name</label> 
+			<input type="text" name= "givenname" id="givenname"  maxlength="25" pattern="[A-Za-z -]+$" required="required"/>
+			<label for="familyname">Family Name</label> 
+			<input type="text" name= "familyname" id="familyname"  maxlength="25" pattern="[A-Za-z -]+$" required="required"/></p>
+			
+				
+		</fieldset>
+		
+		<h2> Quiz on XMLHttpRequest:</h2> <br/>
+		<fieldset>
+			<legend>1.XMLHttpRequest object is the Keystone of Ajax</legend>
+			<p> <input type="radio" id="true" name="ques1" value="true"/>
+			<label for="true">True</label> 
+				<input type="radio" id="false" name="ques1" value="false" required="required"/><label for="false">False</label> 
+			</p>
+		</fieldset>
+		<br/>
+		<fieldset>
+			<legend>2.Select three important properties of the XmlHttpRequest</legend>
+			<p><label for="onreadystatechange">Onreadystatechange</label> 
+				<input type="checkbox" id="onreadystatechange" name="category[]" value="Onreadystatechange" checked="checked" required="required"/>
+				<label for="readyState">readyState</label> 
+				<input type="checkbox" id="readyState" name="category[]" value="readyState" />
+				<label for="Status">Status</label> 
+				<input type="checkbox" id="Status" name="category[]" value="Status"/>
+				<label for="reload">Reload</label> 
+				<input type="checkbox" id="reload" name="category[]" value="reload" />
+				<label for="WebPage">WebPage</label> 
+				<input type="checkbox" id="WebPage" name="category[]" value="WebPage" /> </p> 
+		</fieldset>
+		<br/>
+		<fieldset>
+			<legend>3.We get the XML data using this property.</legend>
+			
+			<p><label for="ques3">Your Answer</label> 
+			<select name="ques3" id="ques3" required="required">
+				<option value="">Select Answer</option>			
+				<option value="ResponseXml">ResponseXml</option>
+				<option value="ResponseMessage">ResponseMessage</option>
+				<option value="RightCommunication">RightCommunication</option>
+				<option value="other">Other</option>
+			</select>
+		</p>
+		</fieldset>
+		<br/>
+		
+		<fieldset>
+			<legend>4.What is the URL used for ?</legend>
+			
+			<p><label for="ques4">Your Answer:</label> <textarea id="ques4" name="ques4" rows="4" cols="40"  PLACEHOLDER="WRITE YOUR ANSWER HERE......!" required="required"></textarea></p>
+		
+		</fieldset>
+<br/>
+<fieldset>
+<legend>5.What is the value of "OK" status web response ?</legend>
+		<label for="ques5">Your Answer</label>
+		<input id="ques5" name="floating point" min="190" max="200" type="number" required="required" />
+	</fieldset>
+	<br/>
+	<input type= "submit" value="Book"/> 
+	<input type= "reset" value="Reset Form"/>
+	</div>
+</section>
+
+	
+	</form>
+
+<!-- Start Footer-->
+<footer id="footer">
+		<div class="cr"> <a href="mailto:101734216@student.swin.edu.au">SwinBurne  | QuizPortal</a> </div>
+</footer>
+<!-- End footer--> 
+<!-- End Container-->
+</body>
+</html>

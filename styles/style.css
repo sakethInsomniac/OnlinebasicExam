@@ -1,0 +1,239 @@
+/* filename: style.css 
+author: Lakshmi Saketh
+created: 19/03/18
+last modified:  
+description: project1  css*/
+h1, h2, h3, h4, h5, h6 {
+font-family : 'Tulpen One', cursive, Arial, Helvetica, sans-serif;
+}
+
+
+/*body*/
+body {
+background :  #82a43a;
+}
+
+/*pageWidth*/
+.pw {
+margin : 0 auto;
+width : 870px;
+
+}
+
+/*Logo of image*/
+#classlogo {
+line-height : 65px;
+float : left;
+font-size : 50px;
+color : black;
+}
+
+/*Header*/
+#header {
+background : white;
+padding : 18px 1px 0 0;
+
+}
+/*Headings*/
+h1 {
+line-height : 35px;
+margin-bottom : 13px;
+font-size : 42px;
+color : black;
+}
+h2 {
+line-height : 28px;
+margin-bottom : 13px;
+font-size : 30px;
+color : black;
+}
+h3 {
+line-height : 36px;
+margin-bottom : 13px;
+font-size : 46px;
+color : black;
+}
+h4 {
+line-height : 31px;
+margin-bottom : 13px;
+font-size : 40px;
+color : black;
+}
+
+/*Menu*/
+#menu {
+text-align : left;
+font-size : 50px;
+padding : 11px 0 10px 4%;
+display : none;
+color : black;
+line-height : 40px;
+
+}
+
+h5 {
+line-height : 27px;
+margin-bottom : 13px;
+font-size : 36px;
+color : black;
+}
+h6 {
+line-height : 24px;
+margin-bottom : 13px;
+font-size : 33px;
+color : black;
+}
+
+/*Nav*/
+nav li a {
+font-size : 28px;
+font-weight : bold;
+}
+
+nav {
+float : right;
+border-radius : 11px;
+padding : 23px 12px 24px;
+}
+
+a {
+color : #525252;
+text-decoration : none;
+}
+a:hover {
+color : black;
+}
+
+
+nav li {
+display : inline;
+line-height : 12px;
+border-left : 1px solid black;
+margin : 0 12px;
+padding : 1px 0 0 22px;
+}
+
+nav li:first-child {
+border-left : none;
+padding-left : 1px;
+}
+
+/*Pseudo and contextual classes*/
+
+p a:hover{background-color: Red;}
+p a:visited{background-color: black;}
+
+#ban {
+padding : 30px 0;
+}
+
+.alfix {
+	display:inline-block;
+	}	
+#banquiz img {
+width : 40%;
+ display: block;
+    margin: 0 auto;
+}
+
+#banquiz {
+padding : 30px 0;
+}
+#banquiz {
+padding : 30px 0;
+}
+
+.alfix {
+	display:inline-block;
+	}	
+#ban img {
+width : 98%;
+}
+#container {
+background : white;
+padding : 20px 0 1px 0;
+}
+
+#container2 {
+background : white;
+padding : 20px 0 2px 0;
+}
+footer {
+font-size : 9px;
+padding : 28px 0 28px 0;
+text-align : center;
+color : white;
+min-width:100%;
+max-width:100%;
+}
+* html .alterfix{ height:2%; }
+.alfix { display:block; }
+/*Footer*/
+.cr {
+color : white;
+display : block;
+text-align : center;
+font-size : 16px;
+}
+.cr a {
+color : white;
+font-size : 14px;
+
+}
+
+.alfix:after{
+	clear:both; 
+	visibility:hidden;	
+	content: "."; 
+	display:block;
+	font-size:1px; 
+	line-height:0; 
+	height:0; 
+	 }
+#left_aside{
+	background-color:yellow;
+}	
+
+table, th, td{
+    border: 1px solid #333;
+   }
+
+aside{
+	
+	float:right;
+	display : block;
+    width : 30em;
+    height : 20em;
+    border-width : 0.1em;
+    border-style : solid;
+    border-color : Green;
+	
+	
+}
+/*Table*/
+#xml {
+   
+	width: 37%;
+    
+   margin-left:15px;
+   margin-bottom:15px;
+}
+
+#xml td, #xml th {
+    border: 1px solid black;
+    padding: 10px;
+		
+}
+
+#xml tr:hover {background-color: gray;}
+
+#xml tr:nth-child(even){background-color: #CECBCB;}
+
+#xml th {
+	 font-family: 'Tulpen One', cursive, Arial, Helvetica, sans-serif;
+   font-size:32px;
+    text-align: center;
+    background-color: green;
+    color: white;
+}
+
